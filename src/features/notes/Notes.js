@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
+import { nanoid } from "@reduxjs/toolkit"
 import { notesSelectors, notesSlice } from "./notesSlices"
-
-// in a real case - use a library to do that
-const generatePseudoUniqueId = (key) => (new Date()).getTime() + (Math.random() * 100).toFixed(0) + key
 
 export const Notes = () => {
     const notes = useSelector(notesSelectors.selectAll)
@@ -13,7 +11,7 @@ export const Notes = () => {
         const note = form.note?.value
         dispatch(notesSlice.actions.addNote({
             content: note,
-            id: generatePseudoUniqueId(notes.length + 1)
+            id: nanoid(),
         }))
     }
 
