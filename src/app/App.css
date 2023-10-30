@@ -5,6 +5,7 @@
 
 body {
   font-size: 1em;
+  min-height: 100vh;
   background: rgb(255, 153, 51);
   background: linear-gradient(
     180deg,
